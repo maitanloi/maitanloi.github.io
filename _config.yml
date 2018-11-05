@@ -24,7 +24,7 @@ github_username:  maitanloi
 
 # Build settings
 markdown: kramdown
-theme: minama
+theme: minima
 plugins:
   - jekyll-feed
 permalink: /:categories/:title:output_ext
