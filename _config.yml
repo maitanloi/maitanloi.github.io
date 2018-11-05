@@ -28,7 +28,10 @@ theme: minima
 plugins:
   - jekyll-feed
 permalink: /:categories/:title:output_ext
+
+plugins: [jekyll-paginate]
 paginate: 5
+paginate_path: /page:num/
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
