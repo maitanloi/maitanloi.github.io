@@ -13,11 +13,10 @@
 .site-title {
   @include relative-font-size(1.625);
   font-weight: 300;
-  line-height: $base-line-height;
+  line-height: $base-line-height + 0.5;
   letter-spacing: -1px;
   margin-bottom: 0;
   float: left;
-  margin-top: 10px;
 
   @include media-query($on-palm) {
     padding-right: 45px;
