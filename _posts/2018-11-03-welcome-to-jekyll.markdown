@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
+title:  "Welcome to Mai Tan Loi!"
 date:   2018-11-03 16:48:14 +0700
 categories: jekyll update
 ---
