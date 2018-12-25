@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Hello world!"
-date:   2018-11-03 16:48:14 +0700
-categories: [web-security]
+title:  "Câu lệnh Git cơ bản"
+date:   2018-12-25 13:38:10 +0700
+categories: [tutorials]
 ---
 Hello world
 
