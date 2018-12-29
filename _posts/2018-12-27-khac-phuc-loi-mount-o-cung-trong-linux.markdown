@@ -40,4 +40,7 @@ Then, mount with:
 $ sudo mount -o rw /dev/sda5 /media/loimai/Data
 ```
 You can disable fast startup by following these steps under "Power Options"  
-Go to **Control Panel** > **Hardware and Sound** > **Power Options** > **System Setting** > Choose what the power buttons do and uncheck the Turn on fast startup box.
+Go to **Control Panel** > **Hardware and Sound** > **Power Options** > **System Setting** > Choose what the power buttons do and uncheck the Turn on fast startup box.  
+![Turn off fast startup][off-fast-startup]
+
+[off-fast-startup]: /assets/img/12-2018/turn-off-fast-starup.png
