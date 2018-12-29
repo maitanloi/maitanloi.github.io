@@ -14,8 +14,6 @@ unsafe state. Please resume and shutdown Windows fully (no hibernation
 or fast restarting.)
 ```
 If you can't access the drive, execute the following command:  
-`sudo ntfsfix /dev/sdXY`  
-where XY is the partition, e.g sda5
 ```terminal
 $ sudo ntfsfix /dev/sda5
 ```
@@ -37,10 +35,9 @@ NTFS partition /dev/sda5 was processed successfully.
 ```
 
 Then, mount with:  
-sudo mount -o rw /dev/[partition] /media/[mounting point]
 
 ```terminal
 $ sudo mount -o rw /dev/sda5 /media/loimai/Data
 ```
 You can disable fast startup by following these steps under "Power Options"  
-Go to Control Panel > Hardware and Sound > Power Options > System Setting > Choose what the power buttons do and uncheck the Turn on fast startup box.
+Go to **Control Panel** > **Hardware and Sound** > **Power Options** > **System Setting** > Choose what the power buttons do and uncheck the Turn on fast startup box.
