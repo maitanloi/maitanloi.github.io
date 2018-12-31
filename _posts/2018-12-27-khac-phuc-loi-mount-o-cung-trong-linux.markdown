@@ -2,7 +2,8 @@
 layout: post
 title:  "Khắc phục lỗi mount ổ cứng trong Linux"
 date:   2018-12-27 16:51:00 +0700
-categories: [tutorials]
+category: linux
+tags: [mount,ntfsfix, linux]
 ---
 
 Lỗi:
