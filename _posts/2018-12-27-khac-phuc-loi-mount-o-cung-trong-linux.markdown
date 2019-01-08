@@ -6,7 +6,7 @@ category: linux
 tags: [mount,ntfsfix, linux]
 ---
 
-Lỗi:
+Error:
 ```
 The disk contains an unclean file system (0, 0).
 Metadata kept in Windows cache, refused to mount.
