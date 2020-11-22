@@ -1,2 +1,2 @@
 # maitanloi.github.io
-Blog
+Website: [https://maitanloi.com/](https://maitanloi.com/)
