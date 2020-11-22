@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-updating...
+Read my blog: [https://maitanloi.com/](https://maitanloi.com/)
