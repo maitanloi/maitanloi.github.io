@@ -4,9 +4,10 @@ title: Mai Tấn Lợi
 theme: PaperMod
 
 permalinks:
-  blog: "/:filename/"
+  blog: "/:contentbasename/"
 
 params:
+  description: "Blog về Web Security bằng tiếng Việt. Hành trình từ Web Developer đến Web Security Specialist."
   defaultTheme: dark
   ShowReadingTime: true
   ShowShareButtons: false
@@ -16,14 +17,33 @@ params:
   ShowToc: true
   TocOpen: true
 
+  profileMode:
+    enabled: true
+    title: "Mai Tấn Lợi"
+    subtitle: "Phá để hiểu, viết để nhớ"
+    buttons:
+      - name: "Blog"
+        url: "/blog/"
+      - name: "About"
+        url: "/about/"
+
+  author: "Mai Tấn Lợi"
+
+  socialIcons:
+    - name: x
+      url: https://x.com/maitanloi
+
 menu:
   main:
     - name: Blog
-      url: /categories/writeups/
+      url: /blog/
       weight: 1
+    - name: Write-ups
+      url: /categories/writeups/
+      weight: 2
     - name: Tags
       url: /tags/
-      weight: 2
+      weight: 3
     - name: About
       url: /about/
-      weight: 3
+      weight: 4

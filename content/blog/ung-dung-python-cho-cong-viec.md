@@ -2,10 +2,9 @@
 title: "Ứng dụng Python cho giải quyết công việc hàng ngày"
 date: 2026-03-09
 tags: ["python", "automation", "productivity"]
-categories: ["blog"]
+categories: ["guides"]
 draft: false
 ---
-
 Python là một trong những ngôn ngữ lập trình phổ biến nhất hiện nay, không chỉ dành cho lập trình viên mà còn cho bất kỳ ai muốn tự động hóa công việc hàng ngày. Bài viết này giới thiệu một số ứng dụng thực tế của Python trong công việc.
 
 ## 1. Tự động hóa xử lý file
