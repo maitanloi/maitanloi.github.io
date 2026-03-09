@@ -3,6 +3,9 @@ languageCode: vi
 title: Mai Tấn Lợi
 theme: PaperMod
 
+permalinks:
+  blog: "/:filename/"
+
 params:
   defaultTheme: dark
   ShowReadingTime: true
@@ -15,8 +18,8 @@ params:
 
 menu:
   main:
-    - name: Writeups
-      url: /posts/
+    - name: Blog
+      url: /categories/writeups/
       weight: 1
     - name: Tags
       url: /tags/
