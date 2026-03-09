@@ -1,31 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Mai Tấn Lợi</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on Mai Tấn Lợi</description>
-    <generator>Hugo</generator>
-    <language>vi</language>
-    <lastBuildDate>Mon, 09 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>HackTheBox - Machine Name</title>
-      <link>http://localhost:1313/htb-machine-name/</link>
-      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/htb-machine-name/</guid>
-      <description>&lt;h2 id=&#34;reconnaissance&#34;&gt;Reconnaissance&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Mai Tấn Lợi</title><link>https://maitanloi.github.io/</link><description>Recent content on Mai Tấn Lợi</description><generator>Hugo</generator><language>vi</language><lastBuildDate>Mon, 09 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://maitanloi.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>HackTheBox - Machine Name</title><link>https://maitanloi.github.io/htb-machine-name/</link><pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate><guid>https://maitanloi.github.io/htb-machine-name/</guid><description>&lt;h2 id="reconnaissance"&gt;Reconnaissance&lt;/h2&gt;
 &lt;p&gt;Bắt đầu với nmap scan&amp;hellip;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;nmap -sC -sV -oN nmap.txt 10.10.10.x
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-    </item>
-    <item>
-      <title>Ứng dụng Python cho giải quyết công việc hàng ngày</title>
-      <link>http://localhost:1313/ung-dung-python-cho-cong-viec/</link>
-      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/ung-dung-python-cho-cong-viec/</guid>
-      <description>&lt;p&gt;Python là một trong những ngôn ngữ lập trình phổ biến nhất hiện nay, không chỉ dành cho lập trình viên mà còn cho bất kỳ ai muốn tự động hóa công việc hàng ngày. Bài viết này giới thiệu một số ứng dụng thực tế của Python trong công việc.&lt;/p&gt;
-&lt;h2 id=&#34;1-tự-động-hóa-xử-lý-file&#34;&gt;1. Tự động hóa xử lý file&lt;/h2&gt;
-&lt;p&gt;Thay vì đổi tên hàng trăm file thủ công, Python giúp bạn làm điều đó trong vài giây:&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap -sC -sV -oN nmap.txt 10.10.10.x
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Ứng dụng Python cho giải quyết công việc hàng ngày</title><link>https://maitanloi.github.io/ung-dung-python-cho-cong-viec/</link><pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate><guid>https://maitanloi.github.io/ung-dung-python-cho-cong-viec/</guid><description>&lt;p&gt;Python là một trong những ngôn ngữ lập trình phổ biến nhất hiện nay, không chỉ dành cho lập trình viên mà còn cho bất kỳ ai muốn tự động hóa công việc hàng ngày. Bài viết này giới thiệu một số ứng dụng thực tế của Python trong công việc.&lt;/p&gt;
+&lt;h2 id="1-tự-động-hóa-xử-lý-file"&gt;1. Tự động hóa xử lý file&lt;/h2&gt;
+&lt;p&gt;Thay vì đổi tên hàng trăm file thủ công, Python giúp bạn làm điều đó trong vài giây:&lt;/p&gt;</description></item><item><title>About</title><link>https://maitanloi.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://maitanloi.github.io/about/</guid><description>&lt;h2 id="tôi-là-ai"&gt;Tôi là ai?&lt;/h2&gt;
+&lt;p&gt;Tôi là &lt;strong&gt;Mai Tấn Lợi&lt;/strong&gt; — web developer đang chuyển sang &lt;strong&gt;Web Security&lt;/strong&gt;. Background của tôi là Next.js, Supabase, và modern web stack. Hiện tại tôi đang trên hành trình trở thành Web Security Specialist.&lt;/p&gt;
+&lt;h2 id="tại-sao-web-security"&gt;Tại sao Web Security?&lt;/h2&gt;
+&lt;p&gt;Sự bùng nổ của vibe coding — hàng ngàn ứng dụng được AI generate và ship mà không qua security review — đang tạo ra nhu cầu lớn cho người hiểu cả code lẫn cách phá code. Developer hiểu app từ trong ra ngoài, nên khi chuyển sang security sẽ tìm được lỗi mà pentester truyền thống bỏ qua.&lt;/p&gt;</description></item></channel></rss>
