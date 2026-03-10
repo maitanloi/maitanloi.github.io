@@ -1,0 +1,10 @@
+{{- /* Social links in footer */ -}}
+<div class="footer-social">
+  {{- with site.Params.socialLinks }}
+    {{- range . }}
+    <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" title="{{ .name }}">
+      {{ .icon | safeHTML }}
+    </a>
+    {{- end }}
+  {{- end }}
+</div>

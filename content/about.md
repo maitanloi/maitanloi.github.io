@@ -2,14 +2,7 @@
 title: "About"
 layout: "single"
 ---
-
-## Tôi là ai?
-
-Tôi là **Mai Tấn Lợi** — web developer đang chuyển sang **Web Security**. Background của tôi là Next.js, Supabase, và modern web stack. Hiện tại tôi đang trên hành trình trở thành Web Security Specialist.
-
-## Tại sao Web Security?
-
-Sự bùng nổ của vibe coding — hàng ngàn ứng dụng được AI generate và ship mà không qua security review — đang tạo ra nhu cầu lớn cho người hiểu cả code lẫn cách phá code. Developer hiểu app từ trong ra ngoài, nên khi chuyển sang security sẽ tìm được lỗi mà pentester truyền thống bỏ qua.
+![](static/images/about-tobi.png)
 
 ## Hành trình
 

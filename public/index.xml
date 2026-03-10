@@ -1,9 +1,73 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Mai Tấn Lợi</title><link>https://maitanloi.github.io/</link><description>Recent content on Mai Tấn Lợi</description><generator>Hugo</generator><language>vi</language><lastBuildDate>Mon, 09 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://maitanloi.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>HackTheBox - Machine Name</title><link>https://maitanloi.github.io/htb-machine-name/</link><pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate><guid>https://maitanloi.github.io/htb-machine-name/</guid><description>&lt;h2 id="reconnaissance"&gt;Reconnaissance&lt;/h2&gt;
-&lt;p&gt;Bắt đầu với nmap scan&amp;hellip;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap -sC -sV -oN nmap.txt 10.10.10.x
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Ứng dụng Python cho giải quyết công việc hàng ngày</title><link>https://maitanloi.github.io/ung-dung-python-cho-cong-viec/</link><pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate><guid>https://maitanloi.github.io/ung-dung-python-cho-cong-viec/</guid><description>&lt;p&gt;Python là một trong những ngôn ngữ lập trình phổ biến nhất hiện nay, không chỉ dành cho lập trình viên mà còn cho bất kỳ ai muốn tự động hóa công việc hàng ngày. Bài viết này giới thiệu một số ứng dụng thực tế của Python trong công việc.&lt;/p&gt;
-&lt;h2 id="1-tự-động-hóa-xử-lý-file"&gt;1. Tự động hóa xử lý file&lt;/h2&gt;
-&lt;p&gt;Thay vì đổi tên hàng trăm file thủ công, Python giúp bạn làm điều đó trong vài giây:&lt;/p&gt;</description></item><item><title>About</title><link>https://maitanloi.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://maitanloi.github.io/about/</guid><description>&lt;h2 id="tôi-là-ai"&gt;Tôi là ai?&lt;/h2&gt;
-&lt;p&gt;Tôi là &lt;strong&gt;Mai Tấn Lợi&lt;/strong&gt; — web developer đang chuyển sang &lt;strong&gt;Web Security&lt;/strong&gt;. Background của tôi là Next.js, Supabase, và modern web stack. Hiện tại tôi đang trên hành trình trở thành Web Security Specialist.&lt;/p&gt;
-&lt;h2 id="tại-sao-web-security"&gt;Tại sao Web Security?&lt;/h2&gt;
-&lt;p&gt;Sự bùng nổ của vibe coding — hàng ngàn ứng dụng được AI generate và ship mà không qua security review — đang tạo ra nhu cầu lớn cho người hiểu cả code lẫn cách phá code. Developer hiểu app từ trong ra ngoài, nên khi chuyển sang security sẽ tìm được lỗi mà pentester truyền thống bỏ qua.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Mai Tấn Lợi</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Mai Tấn Lợi</description>
+    <generator>Hugo</generator>
+    <language>vi</language>
+    <lastBuildDate>Tue, 10 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Biến Claude Desktop thành Pentesting Assistant với Kali Linux qua MCP</title>
+      <link>http://localhost:1313/bien-claude-desktop-thanh-pentesting-assistant-voi-kali-linux-qua-mcp/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bien-claude-desktop-thanh-pentesting-assistant-voi-kali-linux-qua-mcp/</guid>
+      <description>Hướng dẫn tích hợp Claude Desktop với Kali Linux thông qua Model Context Protocol (MCP), biến AI thành trợ lý pentest điều khiển bằng ngôn ngữ tự nhiên.</description>
+    </item>
+    <item>
+      <title>OWASP Top 10:2025 — Vĩ Thú Bảo Mật Edition 🍥</title>
+      <link>http://localhost:1313/owasp-top-10-vi-thu-bao-mat/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/owasp-top-10-vi-thu-bao-mat/</guid>
+      <description>&lt;p&gt;Trong thế giới ninja bảo mật, mỗi lỗ hổng là một Vĩ Thú đang ngủ yên trong ứng dụng của bạn. Hãy phong ấn chúng trước khi Akatsuki (hacker) ghé thăm.&lt;/p&gt;
+&lt;p&gt;Bài viết này map 10 lỗ hổng trong &lt;a href=&#34;https://owasp.org/Top10/2025/&#34;&gt;OWASP Top 10:2025&lt;/a&gt; với 9 Vĩ Thú + Thập Vĩ trong truyện Naruto. Mục đích? Vừa vui, vừa nhớ lâu, vừa hiểu bản chất từng lỗ hổng.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Web Cache Deception: Khai thác Path Mapping Discrepancies</title>
+      <link>http://localhost:1313/web-cache-deception-path-mapping-discrepancies/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/web-cache-deception-path-mapping-discrepancies/</guid>
+      <description>&lt;h2 id=&#34;giới-thiệu&#34;&gt;Giới thiệu&lt;/h2&gt;
+&lt;p&gt;Đây là bài lab đầu tiên trong series &lt;strong&gt;Web Cache Deception&lt;/strong&gt; trên PortSwigger Web Security Academy. Lab này khai thác sự khác biệt (discrepancy) trong cách &lt;strong&gt;origin server&lt;/strong&gt; và &lt;strong&gt;cache&lt;/strong&gt; xử lý URL path, từ đó đánh cắp dữ liệu nhạy cảm của người dùng khác.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Lab:&lt;/strong&gt; Using path mapping discrepancies&lt;br&gt;
+&lt;strong&gt;Difficulty:&lt;/strong&gt; Practitioner&lt;br&gt;
+&lt;strong&gt;Mục tiêu:&lt;/strong&gt; Tìm API key của user &lt;code&gt;carlos&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;kiến-thức-nền-tảng&#34;&gt;Kiến thức nền tảng&lt;/h2&gt;
+&lt;h3 id=&#34;url-path-mapping-là-gì&#34;&gt;URL Path Mapping là gì?&lt;/h3&gt;
+&lt;p&gt;URL path mapping là quá trình server ánh xạ một URL path tới resource tương ứng. Có 2 kiểu phổ biến:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ứng dụng Python cho giải quyết công việc hàng ngày</title>
+      <link>http://localhost:1313/ung-dung-python-cho-cong-viec/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/ung-dung-python-cho-cong-viec/</guid>
+      <description>&lt;p&gt;Python là một trong những ngôn ngữ lập trình phổ biến nhất hiện nay, không chỉ dành cho lập trình viên mà còn cho bất kỳ ai muốn tự động hóa công việc hàng ngày. Bài viết này giới thiệu một số ứng dụng thực tế của Python trong công việc.&lt;/p&gt;
+&lt;h2 id=&#34;1-tự-động-hóa-xử-lý-file&#34;&gt;1. Tự động hóa xử lý file&lt;/h2&gt;
+&lt;p&gt;Thay vì đổi tên hàng trăm file thủ công, Python giúp bạn làm điều đó trong vài giây:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/about-tobi.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34; /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;hành-trình&#34;&gt;Hành trình&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Burp Suite &amp;amp; HTTP fundamentals&lt;/li&gt;
+&lt;li&gt;OWASP Top 10 deep dive&lt;/li&gt;
+&lt;li&gt;PortSwigger labs &amp;amp; Hack The Box machines&lt;/li&gt;
+&lt;li&gt;Next.js + Supabase security niche&lt;/li&gt;
+&lt;li&gt;Target: eJPT → BSCP → OSWE&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;blog-này-về-gì&#34;&gt;Blog này về gì?&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;&amp;ldquo;Phá để hiểu, viết để nhớ&amp;rdquo;&lt;/strong&gt; — mỗi lab hoàn thành = một bài viết. Tôi chia sẻ write-ups, guides, tools, và case studies về web security bằng tiếng Việt.&lt;/p&gt;
+&lt;h2 id=&#34;liên-hệ&#34;&gt;Liên hệ&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;X: &lt;a href=&#34;https://x.com/maitanloi&#34;&gt;@maitanloi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;GitHub: &lt;a href=&#34;https://github.com/maitanloi&#34;&gt;maitanloi&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

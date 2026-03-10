@@ -1,0 +1,9 @@
+{{- /* Strip "static/" prefix from image paths so Obsidian-generated links work with Hugo */ -}}
+{{- $src := .Destination -}}
+{{- if hasPrefix $src "static/" -}}
+  {{- $src = strings.TrimPrefix "static/" $src -}}
+{{- end -}}
+{{- if not (hasPrefix $src "/") -}}
+  {{- $src = printf "/%s" $src -}}
+{{- end -}}
+<img src="{{ $src }}" alt="{{ .Text }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy" />

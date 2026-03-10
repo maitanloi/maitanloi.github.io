@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>OWASP Top 10:2025 — Vĩ Thú Bảo Mật Edition 🍥 | Mai Tấn Lợi</title>
+<meta name="keywords" content="owasp, web-security, naruto, pentest, fun">
+<meta name="description" content="Trong thế giới ninja bảo mật, mỗi lỗ hổng là một Vĩ Thú đang ngủ yên trong ứng dụng của bạn. Hãy phong ấn chúng trước khi Akatsuki (hacker) ghé thăm.
+Bài viết này map 10 lỗ hổng trong OWASP Top 10:2025 với 9 Vĩ Thú &#43; Thập Vĩ trong truyện Naruto. Mục đích? Vừa vui, vừa nhớ lâu, vừa hiểu bản chất từng lỗ hổng.">
+<meta name="author" content="Mai Tấn Lợi">
+<link rel="canonical" href="http://localhost:1313/owasp-top-10-vi-thu-bao-mat/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.25d7e273d7350f014c0b728e4f2c44afdb81c4cff1e9660027ed4acc596d5d8d.css" integrity="sha256-Jdfic9c1DwFMC3KOTyxEr9uBxM/x6WYAJ&#43;1KzFltXY0=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/owasp-top-10-vi-thu-bao-mat/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Mai Tấn Lợi (Alt + H)">Mai Tấn Lợi</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/blog/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/writeups/" title="Write-ups">
+                    <span>Write-ups</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Trang chủ</a>&nbsp;»&nbsp;<a href="http://localhost:1313/blog/">Blogs</a></div>
+    <h1 class="post-title entry-hint-parent">
+      OWASP Top 10:2025 — Vĩ Thú Bảo Mật Edition 🍥
+    </h1>
+    <div class="post-meta"><span title='2026-03-10 00:00:00 +0000 UTC'>March 10, 2026</span>&nbsp;·&nbsp;<span>10 phút</span>&nbsp;·&nbsp;<span>Mai Tấn Lợi</span>
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Mục lục</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#t%e1%ba%a1i-sao-l%e1%ba%a1i-l%c3%a0-v%c4%a9-th%c3%ba" aria-label="Tại sao lại là Vĩ Thú?">Tại sao lại là Vĩ Thú?</a></li>
+                <li>
+                    <a href="#-nh%e1%ba%a5t-v%c4%a9-shukaku--a01-broken-access-control" aria-label="🐾 Nhất Vĩ Shukaku — A01: Broken Access Control">🐾 Nhất Vĩ Shukaku — A01: Broken Access Control</a></li>
+                <li>
+                    <a href="#-nh%e1%bb%8b-v%c4%a9-matatabi--a02-security-misconfiguration" aria-label="🔥 Nhị Vĩ Matatabi — A02: Security Misconfiguration">🔥 Nhị Vĩ Matatabi — A02: Security Misconfiguration</a></li>
+                <li>
+                    <a href="#-tam-v%c4%a9-isobu--a03-software-supply-chain-failures" aria-label="🐢 Tam Vĩ Isobu — A03: Software Supply Chain Failures">🐢 Tam Vĩ Isobu — A03: Software Supply Chain Failures</a></li>
+                <li>
+                    <a href="#-t%e1%bb%a9-v%c4%a9-son-goku--a04-cryptographic-failures" aria-label="🦍 Tứ Vĩ Son Goku — A04: Cryptographic Failures">🦍 Tứ Vĩ Son Goku — A04: Cryptographic Failures</a></li>
+                <li>
+                    <a href="#-ng%c5%a9-v%c4%a9-kokuo--a05-injection" aria-label="🐴 Ngũ Vĩ Kokuo — A05: Injection">🐴 Ngũ Vĩ Kokuo — A05: Injection</a></li>
+                <li>
+                    <a href="#-l%e1%bb%a5c-v%c4%a9-saiken--a06-insecure-design" aria-label="🐌 Lục Vĩ Saiken — A06: Insecure Design">🐌 Lục Vĩ Saiken — A06: Insecure Design</a></li>
+                <li>
+                    <a href="#-th%e1%ba%a5t-v%c4%a9-chomei--a07-authentication-failures" aria-label="🪲 Thất Vĩ Chomei — A07: Authentication Failures">🪲 Thất Vĩ Chomei — A07: Authentication Failures</a></li>
+                <li>
+                    <a href="#-b%c3%a1t-v%c4%a9-gyuki--a08-software-or-data-integrity-failures" aria-label="🐙 Bát Vĩ Gyuki — A08: Software or Data Integrity Failures">🐙 Bát Vĩ Gyuki — A08: Software or Data Integrity Failures</a></li>
+                <li>
+                    <a href="#-c%e1%bb%adu-v%c4%a9-kurama--a09-security-logging-and-alerting-failures" aria-label="🦊 Cửu Vĩ Kurama — A09: Security Logging and Alerting Failures">🦊 Cửu Vĩ Kurama — A09: Security Logging and Alerting Failures</a></li>
+                <li>
+                    <a href="#-th%e1%ba%adp-v%c4%a9-jubi--a10-mishandling-of-exceptional-conditions" aria-label="👁️ Thập Vĩ Jubi — A10: Mishandling of Exceptional Conditions">👁️ Thập Vĩ Jubi — A10: Mishandling of Exceptional Conditions</a></li>
+                <li>
+                    <a href="#-b%e1%ba%a3ng-t%e1%bb%95ng-k%e1%ba%bft--bingo-book-c%e1%bb%a7a-pentest-ninja" aria-label="📜 Bảng Tổng Kết — Bingo Book của Pentest Ninja">📜 Bảng Tổng Kết — Bingo Book của Pentest Ninja</a></li>
+                <li>
+                    <a href="#l%e1%bb%9di-k%e1%ba%bft-con-%c4%91%c6%b0%e1%bb%9dng-hokage-b%e1%ba%a3o-m%e1%ba%adt" aria-label="Lời kết: Con đường Hokage Bảo Mật">Lời kết: Con đường Hokage Bảo Mật</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>Trong thế giới ninja bảo mật, mỗi lỗ hổng là một Vĩ Thú đang ngủ yên trong ứng dụng của bạn. Hãy phong ấn chúng trước khi Akatsuki (hacker) ghé thăm.</p>
+<p>Bài viết này map 10 lỗ hổng trong <a href="https://owasp.org/Top10/2025/">OWASP Top 10:2025</a> với 9 Vĩ Thú + Thập Vĩ trong truyện Naruto. Mục đích? Vừa vui, vừa nhớ lâu, vừa hiểu bản chất từng lỗ hổng.</p>
+<h2 id="tại-sao-lại-là-vĩ-thú">Tại sao lại là Vĩ Thú?<a hidden class="anchor" aria-hidden="true" href="#tại-sao-lại-là-vĩ-thú">#</a></h2>
+<p>OWASP Top 10 là danh sách 10 rủi ro bảo mật web nghiêm trọng nhất, được cập nhật định kỳ bởi cộng đồng bảo mật toàn cầu. Phiên bản 2025 vừa ra mắt với một số thay đổi đáng chú ý so với bản 2021.</p>
+<p>Trong Naruto, 9 Vĩ Thú (Bijuu) là những thực thể chakra khổng lồ, mỗi con có tính cách và sức mạnh riêng. Khi cả 9 hợp nhất sẽ tái tạo thành Thập Vĩ (Jubi) — bản thể gốc với sức mạnh hủy diệt.</p>
+<p>Tương tự, mỗi lỗ hổng OWASP có &ldquo;tính cách&rdquo; riêng, nhưng khi nhiều lỗ hổng kết hợp (chaining vulnerabilities), hậu quả sẽ lớn hơn tổng các phần. Chính xác như Thập Vĩ vậy.</p>
+<p>Nào, bắt đầu đi phong ấn thôi!
+<img src="/images/owasp-top-10-vi-thu.png" alt="" loading="lazy" />
+</p>
+<hr>
+<h2 id="-nhất-vĩ-shukaku--a01-broken-access-control">🐾 Nhất Vĩ Shukaku — A01: Broken Access Control<a hidden class="anchor" aria-hidden="true" href="#-nhất-vĩ-shukaku--a01-broken-access-control">#</a></h2>
+<p><strong>&ldquo;Thằng lửng điên kiểm soát cát… nhưng ai kiểm soát quyền truy cập?&rdquo;</strong></p>
+<p>Shukaku là Vĩ Thú hay mất kiểm soát nhất — y hệt Broken Access Control, lỗ hổng xếp hạng #1. Khi Gaara ngủ, Shukaku lộng hành. Khi dev &ldquo;ngủ quên&rdquo; không kiểm tra quyền, user thường biến thành admin.</p>
+<p><strong>Jutsu đặc trưng: &ldquo;Sabaku Kyū — Quan tài quyền hạn&rdquo;</strong></p>
+<p>Bọc người dùng trong lớp cát phân quyền, nhưng nếu cát bị nứt (IDOR, privilege escalation), kẻ địch thoát ra dễ dàng.</p>
+<p><strong>Cách phong ấn:</strong></p>
+<ul>
+<li>RBAC chặt chẽ, deny-by-default</li>
+<li>Kiểm tra quyền ở server-side, đừng bao giờ tin client</li>
+<li>Test IDOR trên mọi endpoint có tham số ID</li>
+</ul>
+<hr>
+<h2 id="-nhị-vĩ-matatabi--a02-security-misconfiguration">🔥 Nhị Vĩ Matatabi — A02: Security Misconfiguration<a hidden class="anchor" aria-hidden="true" href="#-nhị-vĩ-matatabi--a02-security-misconfiguration">#</a></h2>
+<p><strong>&ldquo;Mèo lửa xanh cháy rực… như server để default credentials&rdquo;</strong></p>
+<p>Matatabi — con mèo bốc lửa xanh chết chóc. Đẹp nhưng nguy hiểm, giống hệt cái cảm giác khi bạn thấy trang <code>/admin</code> mở toang, debug mode bật trên production, hay header <code>X-Powered-By: Express</code> hiện ra chào đón cả thế giới.</p>
+<p><strong>Jutsu đặc trưng: &ldquo;Nezumi Kedama — Cầu lửa cấu hình sai&rdquo;</strong></p>
+<p>Phun ra những ngọn lửa từ cấu hình mặc định chưa đổi, đốt cháy cả hệ thống mà dev không hề hay biết.</p>
+<p><strong>Cách phong ấn:</strong></p>
+<ul>
+<li>Hardening checklist cho từng môi trường</li>
+<li>Tắt feature thừa, xóa default account</li>
+<li>Security headers đầy đủ (<code>Strict-Transport-Security</code>, <code>X-Content-Type-Options</code>, <code>X-Frame-Options</code>&hellip;)</li>
+<li>Automated configuration audit</li>
+</ul>
+<hr>
+<h2 id="-tam-vĩ-isobu--a03-software-supply-chain-failures">🐢 Tam Vĩ Isobu — A03: Software Supply Chain Failures<a hidden class="anchor" aria-hidden="true" href="#-tam-vĩ-isobu--a03-software-supply-chain-failures">#</a></h2>
+<p><strong>&ldquo;Rùa ba đuôi ẩn mình dưới đáy hồ… như malware ẩn trong node_modules&rdquo;</strong></p>
+<p>Isobu — chậm chạp, lặng lẽ, ẩn nấp dưới đáy hồ sương mù. Chẳng ai để ý cho đến khi nó nổi lên. Y chang cái <code>npm install</code> kéo theo 847 dependencies mà bạn chưa bao giờ audit.</p>
+<p>Nhớ lại SolarWinds? Log4Shell? Đều là Isobu nổi lên từ đáy hồ.</p>
+<p><strong>Jutsu đặc trưng: &ldquo;Suijin Heki — Tường sóng phụ thuộc&rdquo;</strong></p>
+<p>Một dependency bị compromise tạo sóng thần lan ra toàn bộ supply chain.</p>
+<p><strong>Cách phong ấn:</strong></p>
+<ul>
+<li>Lock file (<code>package-lock.json</code>, <code>poetry.lock</code>)</li>
+<li>Dependency audit định kỳ (<code>npm audit</code>, <code>pip-audit</code>)</li>
+<li>Tạo SBOM (Software Bill of Materials)</li>
+<li>Verify checksum, dùng registry nội bộ khi có thể</li>
+</ul>
+<hr>
+<h2 id="-tứ-vĩ-son-goku--a04-cryptographic-failures">🦍 Tứ Vĩ Son Goku — A04: Cryptographic Failures<a hidden class="anchor" aria-hidden="true" href="#-tứ-vĩ-son-goku--a04-cryptographic-failures">#</a></h2>
+<p><strong>&ldquo;Khỉ đột phun dung nham… nhưng mã hóa của bạn dễ vỡ hơn đá núi&rdquo;</strong></p>
+<p>Son Goku — con khỉ lửa núi lửa, cứng đầu và nóng nảy. Nó ghét bị giam cầm. Dữ liệu nhạy cảm cũng vậy — chúng ghét bị &ldquo;bảo vệ&rdquo; bằng MD5 hay SHA1 vì thoát ra dễ ợt.</p>
+<p>Dùng crypto yếu giống như nhốt Son Goku bằng dây thừng.</p>
+<p><strong>Jutsu đặc trưng: &ldquo;Shakuton — Nhiệt độn giải mã&rdquo;</strong></p>
+<p>Nung chảy mọi lớp mã hóa yếu, lộ ra plaintext bên trong.</p>
+<p><strong>Cách phong ấn:</strong></p>
+<ul>
+<li>TLS 1.3 cho data in transit</li>
+<li>AES-256 cho data at rest</li>
+<li>bcrypt hoặc Argon2 cho password hashing</li>
+<li><strong>Đừng bao giờ tự chế crypto</strong></li>
+<li>Rotate keys thường xuyên</li>
+</ul>
+<hr>
+<h2 id="-ngũ-vĩ-kokuo--a05-injection">🐴 Ngũ Vĩ Kokuo — A05: Injection<a hidden class="anchor" aria-hidden="true" href="#-ngũ-vĩ-kokuo--a05-injection">#</a></h2>
+<p><strong>&ldquo;Ngựa-cá heo chạy nhanh như SQLMap đang brute payload&rdquo;</strong></p>
+<p>Kokuo — sang trọng, nhanh nhẹn, kết hợp sức mạnh ngựa và cá heo. Injection cũng vậy — kết hợp SQL, NoSQL, OS Command, LDAP, XSS… đa dạng và linh hoạt đáng sợ.</p>
+<p>Một input chưa sanitize = cho Kokuo một thảo nguyên để phi nước đại.</p>
+<p><strong>Jutsu đặc trưng: &ldquo;Futton — Phí Độn Injection&rdquo;</strong></p>
+<p>Xuyên qua mọi lớp phòng thủ bằng hơi nước (payload) nóng bỏng, hòa trộn vào dòng dữ liệu.</p>
+<p><strong>Cách phong ấn:</strong></p>
+<ul>
+<li>Parameterized queries / Prepared statements</li>
+<li>Input validation (whitelist &gt; blacklist)</li>
+<li>ORM cho database queries</li>
+<li>WAF như lớp phòng thủ bổ sung</li>
+<li><strong>Nguyên tắc vàng: đừng bao giờ concatenate user input vào query</strong></li>
+</ul>
+<hr>
+<h2 id="-lục-vĩ-saiken--a06-insecure-design">🐌 Lục Vĩ Saiken — A06: Insecure Design<a hidden class="anchor" aria-hidden="true" href="#-lục-vĩ-saiken--a06-insecure-design">#</a></h2>
+<p><strong>&ldquo;Ốc sên nhớt nhợt… nhưng khó chùi sạch hơn bạn tưởng&rdquo;</strong></p>
+<p>Saiken — trông vô hại, chậm chạp, nhớt nhợt. Nhưng chất nhầy acid của nó ăn mòn mọi thứ. Insecure Design cũng vậy — không phải bug cụ thể mà là <strong>thiết kế sai từ gốc</strong>.</p>
+<p>Bạn không thể patch một căn nhà xây trên nền cát.</p>
+<p><strong>Jutsu đặc trưng: &ldquo;Zesshi Nensan — Acid ăn mòn kiến trúc&rdquo;</strong></p>
+<p>Phun acid lên bản thiết kế, khiến toàn bộ logic nghiệp vụ bị hỏng từ nền tảng. Không có bản vá nào cứu được.</p>
+<p><strong>Cách phong ấn:</strong></p>
+<ul>
+<li>Threat modeling ngay từ giai đoạn thiết kế</li>
+<li>Viết abuse case song song với user stories</li>
+<li>Security architecture review trước khi code</li>
+<li>Áp dụng principle of least privilege ở mọi tầng</li>
+</ul>
+<hr>
+<h2 id="-thất-vĩ-chomei--a07-authentication-failures">🪲 Thất Vĩ Chomei — A07: Authentication Failures<a hidden class="anchor" aria-hidden="true" href="#-thất-vĩ-chomei--a07-authentication-failures">#</a></h2>
+<p><strong>&ldquo;Bọ hung 7 đuôi bay khắp nơi… như session token leak khắp nơi&rdquo;</strong></p>
+<p>Chomei — Vĩ Thú duy nhất biết bay! Nó tự do, khó bắt, bay từ nơi này sang nơi khác. Y hệt session tokens hay JWTs bị lộ, bay lung tung qua URL, logs, hay insecure cookies.</p>
+<p>Khi authentication thất bại, ai cũng có thể &ldquo;bay vào&rdquo; hệ thống.</p>
+<p><strong>Jutsu đặc trưng: &ldquo;Hiden: Rinpungakure — Bụi phấn ẩn thân&rdquo;</strong></p>
+<p>Rải bụi phấn (stolen credentials) khiến attacker trở nên vô hình trong hệ thống, hoạt động dưới danh nghĩa người dùng hợp lệ.</p>
+<p><strong>Cách phong ấn:</strong></p>
+<ul>
+<li>MFA (Multi-Factor Authentication)</li>
+<li>Rate limiting cho login endpoint</li>
+<li>Secure session management (HttpOnly, Secure, SameSite cookies)</li>
+<li>JWT expiration ngắn + refresh token rotation</li>
+<li><strong>Đừng bao giờ gửi token qua URL</strong></li>
+</ul>
+<hr>
+<h2 id="-bát-vĩ-gyuki--a08-software-or-data-integrity-failures">🐙 Bát Vĩ Gyuki — A08: Software or Data Integrity Failures<a hidden class="anchor" aria-hidden="true" href="#-bát-vĩ-gyuki--a08-software-or-data-integrity-failures">#</a></h2>
+<p><strong>&ldquo;Bò-bạch tuộc 8 đuôi — nhiều xúc tu, nhiều vector tấn công&rdquo;</strong></p>
+<p>Gyuki — con hybrid quái dị nhất: bò lai bạch tuộc. 8 đuôi xúc tu = 8 attack vectors liên quan đến integrity: CI/CD pipeline poisoning, unsigned updates, deserialization attacks, tampered builds…</p>
+<p>Mỗi xúc tu một mối đe dọa khác nhau. Và Killer B rap hay tới đâu cũng không che được lỗ hổng integrity.</p>
+<p><strong>Jutsu đặc trưng: &ldquo;Hachibi Ink — Mực bạch tuộc giả mạo&rdquo;</strong></p>
+<p>Phun mực đen lên code và data, thay đổi nội dung mà không ai nhận ra là đồ giả.</p>
+<p><strong>Cách phong ấn:</strong></p>
+<ul>
+<li>Code signing cho mọi artifact</li>
+<li>Integrity checks (Subresource Integrity, checksum verification)</li>
+<li>Secure CI/CD pipelines (signed commits, protected branches)</li>
+<li>Validate deserialization input, tránh deserialize từ untrusted source</li>
+</ul>
+<hr>
+<h2 id="-cửu-vĩ-kurama--a09-security-logging-and-alerting-failures">🦊 Cửu Vĩ Kurama — A09: Security Logging and Alerting Failures<a hidden class="anchor" aria-hidden="true" href="#-cửu-vĩ-kurama--a09-security-logging-and-alerting-failures">#</a></h2>
+<p><strong>&ldquo;Hồ ly 9 đuôi mạnh nhất… nhưng nếu không ai nhìn thấy nó phá, thì ai sẽ chặn?&rdquo;</strong></p>
+<p>Kurama — mạnh nhất trong 9 Vĩ Thú, chakra khổng lồ. Nhưng nhớ lại: Kurama tấn công Làng Lá và gây thiệt hại kinh khủng <strong>trước khi</strong> bị phong ấn. Tại sao? Vì hệ thống cảnh báo quá chậm.</p>
+<p>Security Logging Failures cũng vậy — theo thống kê, breach trung bình mất hơn 200 ngày mới bị phát hiện. Kurama đã phá nát nửa làng trước khi Yondaime kịp phản ứng.</p>
+<p><strong>Jutsu đặc trưng: &ldquo;Bijuu Dama — Bom Vĩ Thú thầm lặng&rdquo;</strong></p>
+<p>Tích tụ chakra (dữ liệu tấn công) âm thầm. Khi phát nổ thì đã quá muộn để phản ứng.</p>
+<p><strong>Cách phong ấn:</strong></p>
+<ul>
+<li>Centralized logging (ELK Stack, Grafana Loki, hoặc SIEM)</li>
+<li>Alert rules cho anomaly detection</li>
+<li>Log immutability (đừng để attacker xóa dấu vết)</li>
+<li>Incident response plan được drill thường xuyên</li>
+<li><strong>Monitor TRƯỚC khi breach, đừng đợi đến SAU</strong></li>
+</ul>
+<hr>
+<h2 id="-thập-vĩ-jubi--a10-mishandling-of-exceptional-conditions">👁️ Thập Vĩ Jubi — A10: Mishandling of Exceptional Conditions<a hidden class="anchor" aria-hidden="true" href="#-thập-vĩ-jubi--a10-mishandling-of-exceptional-conditions">#</a></h2>
+<p><strong>&ldquo;Khi 9 lỗ hổng hợp nhất… Thập Vĩ thức giấc&rdquo;</strong></p>
+<p>Thập Vĩ — bản thể gốc, cội nguồn của mọi Vĩ Thú. Nó không đơn thuần là &ldquo;một con thú&rdquo;, mà là sự hợp nhất của tất cả hỗn loạn.</p>
+<p>Mishandling of Exceptional Conditions — lỗ hổng mới xuất hiện trong OWASP 2025 — cũng mang bản chất tương tự. Nó không phải một lỗi cụ thể như Injection hay XSS, mà là <strong>trạng thái khi hệ thống không biết xử lý cái bất ngờ</strong>.</p>
+<p>Mỗi lỗ hổng từ A01 đến A09 đều có thể bắt đầu từ một exception không được handle đúng cách:</p>
+<ul>
+<li>Access control throw error → bypass</li>
+<li>Crypto function fail silently → plaintext leak</li>
+<li>Authentication timeout không xử lý → session vẫn sống</li>
+</ul>
+<p>Thập Vĩ không tự xuất hiện — nó tái sinh khi 9 Vĩ Thú bị kéo về một chỗ. A10 không phải lỗ hổng riêng lẻ — nó là trạng thái khi toàn bộ error handling sụp đổ, mở cổng cho mọi lỗ hổng khác bùng phát cùng lúc.</p>
+<p><strong>Jutsu đặc trưng: &ldquo;Mugen Tsukuyomi — Nguyệt Nhãn Vĩnh Cửu&rdquo;</strong></p>
+<p>Khi Thập Vĩ hoàn thiện, nó chiếu Tsukuyomi lên toàn bộ hệ thống: mọi process rơi vào ảo giác, tưởng mọi thứ đang chạy bình thường nhưng thực chất đã bị kiểm soát hoàn toàn.</p>
+<p>Giống hệt production server crash liên tục mà monitoring im lặng, exception bị nuốt hết — hệ thống &ldquo;ngủ&rdquo; trong ảo giác rằng mọi thứ ổn.</p>
+<p><strong>Kế hoạch Nguyệt Nhãn của Hacker:</strong></p>
+<ol>
+<li>Khai thác từng lỗ hổng nhỏ (thu thập Vĩ Thú)</li>
+<li>Chain các exception chưa handle lại với nhau</li>
+<li>Tái tạo Thập Vĩ — full system compromise</li>
+<li>Chiếu Mugen Tsukuyomi — duy trì persistence mà không ai phát hiện</li>
+</ol>
+<p><strong>Cách phong ấn (Lục Đạo Hiền Nhân style):</strong></p>
+<ul>
+<li>Global error handler cho mỗi layer</li>
+<li>Fail-secure, không phải fail-open</li>
+<li>Graceful degradation khi có lỗi</li>
+<li>Custom error pages — <strong>đừng bao giờ leak stack trace</strong></li>
+<li>Boundary testing cho mọi edge case</li>
+<li>Circuit breaker pattern cho external services</li>
+<li>Và quan trọng nhất: <strong>đừng để 9 con hợp lại</strong> — defense in depth, mỗi lớp phòng thủ phải độc lập</li>
+</ul>
+<hr>
+<h2 id="-bảng-tổng-kết--bingo-book-của-pentest-ninja">📜 Bảng Tổng Kết — Bingo Book của Pentest Ninja<a hidden class="anchor" aria-hidden="true" href="#-bảng-tổng-kết--bingo-book-của-pentest-ninja">#</a></h2>
+<table>
+  <thead>
+      <tr>
+          <th>#</th>
+          <th>Vĩ Thú</th>
+          <th>OWASP 2025</th>
+          <th>Tính cách chung</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>Shukaku 🐾</td>
+          <td>Broken Access Control</td>
+          <td>Mất kiểm soát, lộng hành khi dev &ldquo;ngủ&rdquo;</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>Matatabi 🔥</td>
+          <td>Security Misconfiguration</td>
+          <td>Đẹp chết người — như default creds</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>Isobu 🐢</td>
+          <td>Supply Chain Failures</td>
+          <td>Ẩn nấp sâu, nổi lên bất ngờ</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>Son Goku 🦍</td>
+          <td>Cryptographic Failures</td>
+          <td>Cứng đầu — như dev cứ dùng MD5</td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>Kokuo 🐴</td>
+          <td>Injection</td>
+          <td>Nhanh, đa dạng, xuyên mọi phòng tuyến</td>
+      </tr>
+      <tr>
+          <td>6</td>
+          <td>Saiken 🐌</td>
+          <td>Insecure Design</td>
+          <td>Chậm nhưng ăn mòn từ gốc</td>
+      </tr>
+      <tr>
+          <td>7</td>
+          <td>Chomei 🪲</td>
+          <td>Authentication Failures</td>
+          <td>Bay khắp nơi — như leaked tokens</td>
+      </tr>
+      <tr>
+          <td>8</td>
+          <td>Gyuki 🐙</td>
+          <td>Software/Data Integrity</td>
+          <td>Nhiều xúc tu, nhiều attack vector</td>
+      </tr>
+      <tr>
+          <td>9</td>
+          <td>Kurama 🦊</td>
+          <td>Logging &amp; Alerting Failures</td>
+          <td>Mạnh nhất, phá nát trước khi ai kịp biết</td>
+      </tr>
+      <tr>
+          <td>10</td>
+          <td>Jubi 👁️</td>
+          <td>Exceptional Conditions</td>
+          <td>Cội nguồn — khi tất cả hợp nhất thành thảm họa</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="lời-kết-con-đường-hokage-bảo-mật">Lời kết: Con đường Hokage Bảo Mật<a hidden class="anchor" aria-hidden="true" href="#lời-kết-con-đường-hokage-bảo-mật">#</a></h2>
+<blockquote>
+<p><em>&ldquo;Lục Đạo Hiền Nhân chia Thập Vĩ thành 9 phần để thế giới được an toàn. Defense in depth cũng vậy — chia nhỏ bề mặt tấn công, phong ấn từng lớp, đừng bao giờ để hacker thu thập đủ 9 con.&rdquo;</em></p>
+</blockquote>
+<p>Nếu bạn là developer, hãy coi OWASP Top 10 như Bingo Book — danh sách truy nã những mối đe dọa nguy hiểm nhất. Nắm rõ đặc tính từng &ldquo;con thú&rdquo;, hiểu cách phong ấn, và xây dựng phòng tuyến nhiều lớp.</p>
+<p>Và nhớ, trong pentest cũng như trong Naruto: <strong>hiểu kẻ thù là bước đầu tiên để đánh bại chúng</strong>.</p>
+<hr>
+<p><em>Bài viết này mang tính chất học tập và giải trí. Mọi hoạt động pentest phải được thực hiện trên hệ thống bạn có quyền kiểm thử hợp pháp. Hãy là White Hat ninja!</em> 🍃</p>
+
+  </div>
+  <div class="post-author">
+    <div class="post-author-info">
+      <div class="post-author-name">Mai Tấn Lợi</div>
+      <div class="post-author-bio">Phá để hiểu, viết để nhớ</div>
+    </div>
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/owasp/">Owasp</a></li>
+      <li><a href="http://localhost:1313/tags/web-security/">Web-Security</a></li>
+      <li><a href="http://localhost:1313/tags/naruto/">Naruto</a></li>
+      <li><a href="http://localhost:1313/tags/pentest/">Pentest</a></li>
+      <li><a href="http://localhost:1313/tags/fun/">Fun</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/bien-claude-desktop-thanh-pentesting-assistant-voi-kali-linux-qua-mcp/">
+    <span class="title">« Trang trước</span>
+    <br>
+    <span>Biến Claude Desktop thành Pentesting Assistant với Kali Linux qua MCP</span>
+  </a>
+  <a class="next" href="http://localhost:1313/web-cache-deception-path-mapping-discrepancies/">
+    <span class="title">Trang tiếp theo »</span>
+    <br>
+    <span>Web Cache Deception: Khai thác Path Mapping Discrepancies</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Mai Tấn Lợi</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a><div class="footer-social">
+</div>
+
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'Sao chép';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'Đã sao chép!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'Sao chép';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

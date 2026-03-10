@@ -1,3 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Automation on Mai Tấn Lợi</title><link>https://maitanloi.github.io/tags/automation/</link><description>Recent content in Automation on Mai Tấn Lợi</description><generator>Hugo</generator><language>vi</language><lastBuildDate>Mon, 09 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://maitanloi.github.io/tags/automation/index.xml" rel="self" type="application/rss+xml"/><item><title>Ứng dụng Python cho giải quyết công việc hàng ngày</title><link>https://maitanloi.github.io/ung-dung-python-cho-cong-viec/</link><pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate><guid>https://maitanloi.github.io/ung-dung-python-cho-cong-viec/</guid><description>&lt;p&gt;Python là một trong những ngôn ngữ lập trình phổ biến nhất hiện nay, không chỉ dành cho lập trình viên mà còn cho bất kỳ ai muốn tự động hóa công việc hàng ngày. Bài viết này giới thiệu một số ứng dụng thực tế của Python trong công việc.&lt;/p&gt;
-&lt;h2 id="1-tự-động-hóa-xử-lý-file"&gt;1. Tự động hóa xử lý file&lt;/h2&gt;
-&lt;p&gt;Thay vì đổi tên hàng trăm file thủ công, Python giúp bạn làm điều đó trong vài giây:&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Automation on Mai Tấn Lợi</title>
+    <link>http://localhost:1313/tags/automation/</link>
+    <description>Recent content in Automation on Mai Tấn Lợi</description>
+    <generator>Hugo</generator>
+    <language>vi</language>
+    <lastBuildDate>Mon, 09 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/automation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ứng dụng Python cho giải quyết công việc hàng ngày</title>
+      <link>http://localhost:1313/ung-dung-python-cho-cong-viec/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/ung-dung-python-cho-cong-viec/</guid>
+      <description>&lt;p&gt;Python là một trong những ngôn ngữ lập trình phổ biến nhất hiện nay, không chỉ dành cho lập trình viên mà còn cho bất kỳ ai muốn tự động hóa công việc hàng ngày. Bài viết này giới thiệu một số ứng dụng thực tế của Python trong công việc.&lt;/p&gt;
+&lt;h2 id=&#34;1-tự-động-hóa-xử-lý-file&#34;&gt;1. Tự động hóa xử lý file&lt;/h2&gt;
+&lt;p&gt;Thay vì đổi tên hàng trăm file thủ công, Python giúp bạn làm điều đó trong vài giây:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
