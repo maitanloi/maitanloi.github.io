@@ -27,7 +27,7 @@ Trong Naruto, 9 Vĩ Thú (Bijuu) là những thực thể chakra khổng lồ, m
 Tương tự, mỗi lỗ hổng OWASP có "tính cách" riêng, nhưng khi nhiều lỗ hổng kết hợp (chaining vulnerabilities), hậu quả sẽ lớn hơn tổng các phần. Chính xác như Thập Vĩ vậy.
 
 Nào, bắt đầu đi phong ấn thôi!
-![](static/images/owasp-top-10-vi-thu.png)
+![](static/images/owasp-top-10-vi-thu.webp)
 
 ---
 

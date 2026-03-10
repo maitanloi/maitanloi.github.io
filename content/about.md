@@ -2,7 +2,7 @@
 title: "About"
 layout: "single"
 ---
-![](static/images/about-tobi.png)
+![](static/images/about-tobi.webp)
 
 ## Hành trình
 

@@ -110,7 +110,7 @@ X-Cache: hit
 
 → Cache nhận diện `.js` là file tĩnh và lưu lại toàn bộ response, bao gồm cả data nhạy cảm.
 
-![](static/images/web-cache-3.png)
+![](static/images/web-cache-3.webp)
 ### Bước 4: Craft exploit
 
 Vào **Exploit Server**, đặt payload trong phần Body:
@@ -130,8 +130,8 @@ https://LAB-ID.web-security-academy.net/my-account/xyz.js
 ```
 
 Cache trả về response chứa **API key của carlos**. Copy API key và submit solution.
-![](static/images/web-cache-1.png)
-![](static/images/web-cache-2.png)
+![](static/images/web-cache-1.webp)
+![](static/images/web-cache-2.webp)
 ## Tổng kết
 
 ### Attack flow
