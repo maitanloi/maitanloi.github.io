@@ -1,6 +1,6 @@
 ---
 title: "Web Cache Deception: Khai thác Delimiter Discrepancies để đánh cắp dữ liệu nhạy cảm"
-date: 2026-03-23T16:04:00
+date: 2026-03-23T16:04:00+07:00
 tags:
   - web-cache-deception
   - portswigger
